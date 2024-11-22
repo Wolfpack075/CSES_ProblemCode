@@ -8,8 +8,8 @@
     One day I'll make you proud, mom. Stay strong.
     Godspeed.
     Author : Kazi Fahim Tahmid
-    Judge: CSES Introductory Problem ( Bit Strings )
-    Date : Friday, 22 November 2024, 06:33PM
+    Judge: CSES Introductory Problem ( Trailing Zeros )
+    Date : Friday, 22 November 2024, 06:59PM
  
     
 */
@@ -77,20 +77,23 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
  
 const int N = 200005;
 const int modd = 1e9+7;
+
+void fact(int n){
+    int x=1;
+    for(int i=2;i<=n;i++) x*=i;
+        cout << x;
+}
  
 void solve() {
     int n;cin>>n;
-    int ashol = 2;
-    int x=1;
-    while(n){
-        if(n&1) x= (x%modd)*(ashol%modd) % modd;
-        ashol= ( (ashol%modd) * (ashol%modd) ) % modd;
-        n>>=1;
+    int i=1;
+    int x=5;int res=0;
+    while(n/x>=1){
+        res+=n/x;
+        i++;
+        x=power(5,i);
     }
-    cout << x;
-    // cout << modd;
-    // int hudai = power(2,n);
-    // cout << hudai;
+    cout << res;
  
 }
  
@@ -110,4 +113,4 @@ int32_t main()
     cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
  
     return 0;
-} 
+}
