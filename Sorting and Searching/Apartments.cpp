@@ -8,8 +8,8 @@
     One day I'll make you proud, mom. Stay strong.
     Godspeed.
     Author : Kazi Fahim Tahmid
-    Judge: Codeforces
-    Date : Monday, 02 December 2024, 08:32PM
+    Judge: CSES Problem Set - Sorting and Searching ( Apartments )
+    Date : Thursday, 05 December 2024, 02:27PM
  
     
 */
@@ -78,14 +78,34 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 const int N = 200005;
 
 void solve() {
-    int n,m;
-    cin>> n >> m;
-    int arr[n];
-    for(int i=0;i<n;i++) cin >> arr[i];
-    sort(arr,arr+n);
-    int hudai = m-arr[n-1];
-    if(hudai<0) cout << 0 << endl;
-        else cout << hudai << endl;
+    int n,m,x;
+    cin>> n >> m >> x;
+    vi bharatia(n);
+    vi basha(m);
+    for(int &x:bharatia) cin >> x;
+    for(int &x:basha) cin >> x;
+    sort(bharatia.begin(),bharatia.end());
+    for(int i=0;i<n;i++) bharatia[i]-=x;
+    sort(basha.begin(),basha.end());
+    // print(basha);
+    // print(bharatia);
+    int res = 0;
+    int hudai=-1;
+    for(int i=0;i<n;i++){
+        auto it = lower_bound(basha.begin()+hudai+1,basha.end(),bharatia[i]);
+        auto itt = basha.begin()+hudai+1;
+        // cout << *it << endl;
+        if(it != basha.end()){
+            int pos=it-basha.begin();
+            if(basha[pos] <= bharatia[i]+2*x){
+                res++;
+                hudai=pos;
+                // cout << hudai;
+            }
+        }
+    }
+    cout << res;
+
 
     // bug(n, m);
 }
@@ -100,7 +120,7 @@ int32_t main()
     clock_t z = clock();
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) solve();
 
     cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
