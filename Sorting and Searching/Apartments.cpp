@@ -8,7 +8,7 @@
     One day I'll make you proud, mom. Stay strong.
     Godspeed.
     Author : Kazi Fahim Tahmid
-    Judge: CSES Problem Set - Sorting and Searching ( Apartments )
+    Judge: CSES - Sorting and Searching ( Apartments )
     Date : Thursday, 05 December 2024, 02:27PM
  
     
